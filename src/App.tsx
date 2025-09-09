@@ -1,18 +1,21 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
-import ToggleSwitch from './components/ToggleSwitch'
+import ExtensionCard, { type ExtensionCardType } from './components/ExtensionCard'
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  let Hello: ExtensionCardType = {icon: "😁", title: "Hello", description: "Lorem ipsum2"}
+
+  let CardList: ExtensionCardType[] = [
+    {icon: "💯", title: "tuz", description: "Lorem ipsum4"},
+    {icon: "😍", title: "Love", description: "Lorem ipsum3"}
+  ]
 
   return (
-    <>
-      <h1>Hello</h1>
-      
-      <ToggleSwitch/>
-    </>
+    <div className='cardHolder'>
+      <ExtensionCard icon='❤️' title='DevLens' description='Lorem ipsum'/>
+      <ExtensionCard {...Hello}/>
+      { CardList.map((e, idx) => <ExtensionCard key={idx} {...e} />)}
+    </div>
   )
 }
 

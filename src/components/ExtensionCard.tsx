@@ -1,21 +1,29 @@
 import ToggleSwitch from "./ToggleSwitch";
 
-function ExtensionCard(){
+export type ExtensionCardType = {
+    icon: string,
+    title: string,
+    description: string
+}
+
+function ExtensionCard(props: ExtensionCardType){
 
 
     return(
         <div className="extensionCard">
-            <div>
-                <div className="icon">❤️</div>
+            <div className="content">
+                <div className="icon">{props.icon}</div>
                 <div>
-                    <h3>DevLens</h3>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aperiam, praesentium.</p>
+                    <h3>{props.title}</h3>
+                    <p>{props.description}</p>
                 </div>
             </div>
-            <div>
+            <div className="buttons">
                 <button>Remove</button>
                 <ToggleSwitch/>
             </div>
         </div>
     )
 }
+
+export default ExtensionCard
